@@ -9,7 +9,7 @@ const frameMetadata = getFrameMetadata({
       label: 'please press here',
     },
   ],
-  image: `${NEXT_PUBLIC_URL}/ipfs/QmNjCFVSC8dtdn7Jhc1n39zskHoCiUc4Q2yzUGXupG3CdX/0.png`,
+  image: `https://ivory-hollow-crayfish-496.mypinata.cloud/ipfs/QmNjCFVSC8dtdn7Jhc1n39zskHoCiUc4Q2yzUGXupG3CdX/0.png`,
   input: {
     text: 'Tell me a boat story',
   },

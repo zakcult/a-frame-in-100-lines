@@ -1,7 +1,7 @@
 import { getFrameMetadata } from '@coinbase/onchainkit';
 import type { Metadata } from 'next';
 
-const NEXT_PUBLIC_URL = 'ivory-hollow-crayfish-496.mypinata.cloud';
+const NEXT_PUBLIC_URL = 'https://ivory-hollow-crayfish-496.mypinata.cloud';
 
 const frameMetadata = getFrameMetadata({
   buttons: [

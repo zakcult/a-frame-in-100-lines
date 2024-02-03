@@ -1,28 +1,28 @@
 import { getFrameMetadata } from '@coinbase/onchainkit';
 import type { Metadata } from 'next';
 
-const NEXT_PUBLIC_URL = 'https://zizzamia.xyz';
+const NEXT_PUBLIC_URL = 'ivory-hollow-crayfish-496.mypinata.cloud';
 
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Click Me',
+      label: 'please press here',
     },
   ],
-  image: `${NEXT_PUBLIC_URL}/park-1.png`,
+  image: `${NEXT_PUBLIC_URL}/ipfs/QmNjCFVSC8dtdn7Jhc1n39zskHoCiUc4Q2yzUGXupG3CdX/0.png`,
   input: {
     text: 'Tell me a boat story',
   },
-  post_url: `${NEXT_PUBLIC_URL}/api/frame`,
+  post_url: `${NEXT_PUBLIC_URL}/api/frame?id=1`,
 });
 
 export const metadata: Metadata = {
-  title: 'zizzamia.xyz',
+  title: 'z21d.com',
   description: 'LFG',
   openGraph: {
-    title: 'zizzamia.xyz',
+    title: 'z21d.com',
     description: 'LFG',
-    images: [`${NEXT_PUBLIC_URL}/park-1.png`],
+    images: [`${NEXT_PUBLIC_URL}/ipfs/QmNjCFVSC8dtdn7Jhc1n39zskHoCiUc4Q2yzUGXupG3CdX/0.png`],
   },
   other: {
     ...frameMetadata,
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1>zizzamia.xyz</h1>
+      <h1>z21d.com</h1>
     </>
   );
 }

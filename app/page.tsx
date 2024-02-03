@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'z21d.com',
     description: 'LFG',
-    images: [`${NEXT_PUBLIC_URL}/ipfs/QmNjCFVSC8dtdn7Jhc1n39zskHoCiUc4Q2yzUGXupG3CdX/0.png`],
+    images: [`https://ivory-hollow-crayfish-496.mypinata.cloud/ipfs/QmNjCFVSC8dtdn7Jhc1n39zskHoCiUc4Q2yzUGXupG3CdX/0.png`],
   },
   other: {
     ...frameMetadata,

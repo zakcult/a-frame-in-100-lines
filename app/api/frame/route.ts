@@ -1,34 +1,32 @@
-import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/onchainkit';
 import { NextRequest, NextResponse } from 'next/server';
 
-const NEXT_PUBLIC_URL = 'https://zizzamia.xyz';
-
 async function getResponse(req: NextRequest): Promise<NextResponse> {
-  let accountAddress: string | undefined = '';
-  let text: string | undefined = '';
+  const searchParams = req.nextUrl.searchParams
+  const id:any = searchParams.get("id")
+  const idAsNumber = parseInt(id)
 
-  const body: FrameRequest = await req.json();
-  const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
+  const nextId = idAsNumber + 1
 
-  if (isValid) {
-    accountAddress = message.interactor.verified_accounts[0];
+  if(idAsNumber === 5){
+      return new NextResponse(`<!DOCTYPE html><html><head>
+    <title>This is frame 7</title>
+    <meta property="fc:frame" content="vNext" />
+    <meta property="fc:frame:image" content="${process.env.NEXT_PUBLIC_GATEWAY_URL}/ipfs/QmNjCFVSC8dtdn7Jhc1n39zskHoCiUc4Q2yzUGXupG3CdX/5.png" />
+    <meta property="fc:frame:button:1" content="Visit CosmicCowboys.cloud" />
+    <meta property="fc:frame:button:1:action" content="post_redirect" />
+    <meta property="fc:frame:button:2" content="Learn How this was made" />
+    <meta property="fc:frame:button:2:action" content="post_redirect" />
+    <meta property="fc:frame:post_url" content="${process.env.NEXT_PUBLIC_BASE_URL}/api/end" />
+  </head></html>`);
+  } else {
+  return new NextResponse(`<!DOCTYPE html><html><head>
+    <title>This is frame ${id}</title>
+    <meta property="fc:frame" content="vNext" />
+    <meta property="fc:frame:image" content="${process.env.NEXT_PUBLIC_GATEWAY_URL}/ipfs/QmNjCFVSC8dtdn7Jhc1n39zskHoCiUc4Q2yzUGXupG3CdX/${id}.png" />
+    <meta property="fc:frame:button:1" content="Next Page" />
+    <meta property="fc:frame:post_url" content="${process.env.NEXT_PUBLIC_BASE_URL}/api/frame?id=${nextId}" />
+  </head></html>`);
   }
-
-  if (body?.untrustedData?.inputText) {
-    text = body.untrustedData.inputText;
-  }
-
-  return new NextResponse(
-    getFrameHtmlResponse({
-      buttons: [
-        {
-          label: `Text: ${text}`,
-        },
-      ],
-      image: `${NEXT_PUBLIC_URL}/park-2.png`,
-      post_url: `${NEXT_PUBLIC_URL}/api/frame`,
-    }),
-  );
 }
 
 export async function POST(req: NextRequest): Promise<Response> {
